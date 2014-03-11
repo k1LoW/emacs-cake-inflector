@@ -17,9 +17,10 @@
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 ;;
-;; Version: 1.0.1
+;; Version: 1.1.0
 ;; Author: k1LoW (Kenichirou Oyama), <k1lowxb [at] gmail [dot] com> <k1low [at] 101000lab [dot] org>
 ;; URL: https://github.com/k1LoW/emacs-cake-inflector, http://code.101000lab.org, http://trac.codechecki.in
+;; Package-Requires: ((s "1.9.0"))
 
 ;; -------------The license of inflector.php is displayed as follows. ------------------------------------------------------
 ;;
@@ -50,6 +51,7 @@
 ;; -------------------------------------------------------------------------------------------------------------
 
 ;; Code goes here
+(require 's)
 
 (defvar cake-plural-rules
   '(("atlas$" "atlases")
@@ -360,6 +362,18 @@
           (unless (not (string-match (nth 0 rule) str))
             (setq result (replace-match (nth 1 rule) nil nil str))
             (return result)))))
+
+(defun cake-camelize (str)
+  "Camelize snake_case str"
+  (s-upper-camel-case str))
+
+(defun cake-lower-camelize (str)
+  "lowerCamelize snake_case str"
+  (s-lower-camel-case str))
+
+(defun cake-snake (str)
+  "Change snake_case."
+  (s-snake-case str))
 
 (provide 'cake-inflector)
 ;;; cake-inflector.el ends here
