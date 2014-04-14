@@ -17,7 +17,7 @@
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
 ;;
-;; Version: 1.1.0
+;; Version: 1.1.1
 ;; Author: k1LoW (Kenichirou Oyama), <k1lowxb [at] gmail [dot] com> <k1low [at] 101000lab [dot] org>
 ;; URL: https://github.com/k1LoW/emacs-cake-inflector, http://code.101000lab.org, http://trac.codechecki.in
 ;; Package-Requires: ((s "1.9.0"))
@@ -50,7 +50,8 @@
 ;; @license                     http://www.opensource.org/licenses/mit-license.php The MIT License
 ;; -------------------------------------------------------------------------------------------------------------
 
-;; Code goes here
+;;; Code:
+
 (require 's)
 
 (defvar cake-plural-rules
@@ -375,5 +376,25 @@
   "Change snake_case."
   (s-snake-case str))
 
+;; Tests
+(dont-compile
+  (when (fboundp 'expectations)
+    (expectations
+      (expect "Lib/Admin/App"
+        (cake-singularize "Lib/Admin/App"))
+      (expect "Lib/Admin/Post"
+        (cake-singularize "Lib/Admin/Posts"))
+      (expect "View/Post"
+        (cake-singularize "View/Posts"))
+      (expect "posts"
+        (cake-pluralize "post"))
+      (expect "post"
+        (cake-singularize "post"))
+      (expect "Post"
+        (cake-camelize "post"))
+      )))
+
 (provide 'cake-inflector)
+
+;;; end
 ;;; cake-inflector.el ends here
