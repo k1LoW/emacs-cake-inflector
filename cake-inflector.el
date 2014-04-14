@@ -19,7 +19,7 @@
 ;;
 ;; Version: 1.1.1
 ;; Author: k1LoW (Kenichirou Oyama), <k1lowxb [at] gmail [dot] com> <k1low [at] 101000lab [dot] org>
-;; URL: https://github.com/k1LoW/emacs-cake-inflector, http://code.101000lab.org, http://trac.codechecki.in
+;; URL: https://github.com/k1LoW/emacs-cake-inflector
 ;; Package-Requires: ((s "1.9.0"))
 
 ;; -------------The license of inflector.php is displayed as follows. ------------------------------------------------------
