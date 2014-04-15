@@ -392,6 +392,10 @@
         (cake-singularize "post"))
       (expect "Post"
         (cake-camelize "post"))
+      (expect "PostComment"
+        (cake-camelize "postComment"))
+      (expect "PostComment"
+        (cake-camelize "post_comment"))
       )))
 
 (provide 'cake-inflector)
