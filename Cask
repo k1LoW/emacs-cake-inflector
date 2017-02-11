@@ -5,4 +5,5 @@
 (package-file "cake-inflector.el")
 
 (development
-(depends-on "s"))
+(depends-on "s")
+(depends-on "el-expectations"))
